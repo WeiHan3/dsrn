@@ -14,7 +14,7 @@ flags.DEFINE_string('prediction_dir', '',
                     'directory containing the predicted images.')
 
 
-def compute_psnr(predction, ground_truth):
+def compute_psnr(prediction, ground_truth):
   pred_y = skimage.color.rgb2ycbcr(prediction)[:,:,0:1]
   gt_y = skimage.color.rgb2ycbcr(ground_truth)[:,:,0:1]
   return skimage.measure.compare_psnr(pred_y, gt_y, data_range=255)
